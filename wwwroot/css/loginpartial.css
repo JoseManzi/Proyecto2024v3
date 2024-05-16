@@ -1,0 +1,24 @@
+/* Estilo de los iconos del Nav Horizontal y el texto que aparece luego de pasarle por encima */
+.icon-container {
+  display: inline-block;
+  position: relative;
+}
+
+.icon-text {
+  position: absolute;
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  opacity: 0;
+  visibility: hidden;
+  background-color: #000;
+  color: #fff;
+  padding: 5px;
+  border-radius: 5px;
+  transition: opacity 0.3s, visibility 0.3s;
+}
+
+.icon-container:hover .icon-text {
+  opacity: 1;
+  visibility: visible;
+}

@@ -1,0 +1,54 @@
+﻿@page
+@model LoginModel
+
+@{
+    ViewData["Title"] = "Iniciar sesión";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/login.css" asp-append-version="true" />
+</head>
+
+  @* Se comentó La validacion del Email y el Boton recuerdame  *@
+
+<div class="login">
+    <div class="form">
+        <form id="account" method="post">
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+            <div>
+                <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true"
+                    placeholder="Correo Electrónico" />
+                @* <span asp-validation-for="Input.Email" class="text-danger"></span> *@
+            </div>
+            <div>
+                <input asp-for="Input.Password" class="form-control" autocomplete="current-password"
+                    aria-required="true" placeholder="Contraseña" />
+            </div>
+            @* <div>
+                <label asp-for="Input.RememberMe" class="form-label botonRecuerdame">
+                    <p>Recuerdame</p>
+                    <input class="form-check-input; check" asp-for="Input.RememberMe" />
+                    @Html.DisplayNameFor(m => m.Input.RememberMe)
+                </label>
+            </div> *@
+            <div class="contenidobotonIniciarSesion">
+                <button class="botonIniciarSesion" id="login-submit" type="submit">Iniciar Sesión</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+@* Contenido despues del Formulario *@
+
+<div>
+    <p class="ContenidoLogin">
+        <a class="textoLogin" id="forgot-password" asp-page="./ForgotPassword">¿Olvidaste tu contraseña?</a>
+    </p>
+    <p class="ContenidoLogin">
+        <a class="textoLogin" asp-page="./Register" asp-route-returnUrl="@Model.ReturnUrl">Regístrese como nuevo usuario</a>
+    </p>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

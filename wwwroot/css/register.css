@@ -1,0 +1,151 @@
+.ContenidoLogin,
+h1 {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+body {
+    background: rgb(255,255,255);
+    background: radial-gradient(circle, rgba(255,255,255,1) 45%, rgba(178,223,230,1) 75%, rgba(162,216,225,1) 84%, rgba(156,214,223,1) 86%, rgba(150,211,221,1) 90%, rgba(129,202,214,1) 92%, rgba(118,198,211,1) 94%, rgba(86,184,201,1) 96%, rgba(5,150,175,1) 100%);}
+
+/* Estilo Tienes cuenta? INGRESAR */
+
+.textoIngresar,.botonIngresar {
+    color: grey;
+    letter-spacing: 1.5px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.botonIngresar:hover {
+    color: #000000;
+    scale: 101%;
+}
+
+/* Estilo form de Nuevo usuario */
+
+* {
+    box-sizing: border-box;
+    font-family: sans-serif;
+}
+
+.login {
+    width: 350px;
+    height: 360px;
+    border: 1px solid #CCC;
+    background: url(https://media4.giphy.com/media/cOvxxFU44dSb6Chm9D/giphy.gif) center center no-repeat;
+    margin: 30px auto;
+    border-radius: 20px;
+}
+
+.login .form {
+    width: 100%;
+    height: 100%;
+    padding: 15px 25px;
+}
+
+.login .form h2 {
+    color: #9b9b9b;
+    text-align: center;
+    font-weight: normal;
+    font-size: 18px;
+    margin-top: 60px;
+    margin-bottom: 80px;
+}
+
+.login .form input {
+    width: 100%;
+    height: 40px;
+    margin-top: 50px;
+    background: rgba(255, 255, 255, .5);
+    border: 1px solid rgba(255, 255, 255, .1);
+    padding: 0 15px;
+    color: #000000;
+    border-radius: 5px;
+    font-size: 14px;
+}
+
+.login .form input:focus {
+    border: 1px solid rgba(255, 255, 255, .8);
+    outline: none;
+}
+
+::-webkit-input-placeholder {
+    color: #DDD;
+}
+
+.login .form input.submit {
+    background: rgba(255, 255, 255, .9);
+    color: #444;
+    font-size: 15px;
+    margin-top: 40px;
+    font-weight: bold;
+}
+
+
+/* Estilo del Boton para Registrarse */
+
+.botonRegistrarse {
+    background-color: rgb(5, 150, 175);
+    color: #000000;
+}
+
+.botonRegistrarse {
+    background-color: #3DD1E7;
+    border: 0 solid #E5E7EB;
+    box-sizing: border-box;
+    color: #000000;
+    display: flex;
+    font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    font-size: 1rem;
+    font-weight: 700;
+    justify-content: center;
+    line-height: 1.75rem;
+    padding: .75rem 1.65rem;
+    text-align: center;
+    text-decoration: none #000000 solid;
+    text-decoration-thickness: auto;
+    width: 100%;
+    max-width: 460px;
+    position: relative;
+    cursor: pointer;
+    transform: rotate(-2deg);
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: manipulation;
+}
+
+.botonRegistrarse:focus {
+    outline: 0;
+}
+
+.botonRegistrarse:after {
+    content: '';
+    position: absolute;
+    border: 1px solid #000000;
+    bottom: 4px;
+    left: 4px;
+    width: calc(100% - 1px);
+    height: calc(100% - 1px);
+}
+
+.botonRegistrarse:hover:after {
+    bottom: 2px;
+    left: 2px;
+}
+
+.contenidobotonRegistrarse {
+    margin-top: 15px;
+}
+
+.botonIngresar {
+    color: #000000;
+}
+
+@media (min-width: 768px) {
+    .botonRegistrarse {
+        padding: .75rem 3rem;
+        font-size: 1.25rem;
+    }
+}

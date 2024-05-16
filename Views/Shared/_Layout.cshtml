@@ -1,0 +1,131 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - Ejercicios Fisicos</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/css/layout.css" asp-append-version="true" />
+    <link rel="stylesheet" href="~/Proyecto2024v3.styles.css" asp-append-version="true" />
+    <link href="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.min.css" rel="stylesheet">
+</head>
+
+@if (SignInManager.IsSignedIn(User))
+{
+
+
+
+    @* SideBar Nav (Nav Vertical) *@
+    <div class="area"></div>
+    <nav class="main-menu">
+        <ul>
+            <li>
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fa fa-heart fa-2x"></i>
+                    <span class="nav-text">
+                        Actividad Fisica
+                    </span>
+                </a>
+
+            </li>
+            <li class="has-subnav">
+                <a asp-area="" asp-controller="Home" asp-action="Index">
+                    <i class="fa fa-home fa-2x"></i>
+                    <span class="nav-text">
+                        Home
+                    </span>
+                </a>
+
+            </li>
+            <li class="has-subnav">
+                <a asp-area="" asp-controller="TipoEjercicios" asp-action="Index">
+                    <i class="fa fa-tasks fa-2x"></i>
+                    <span class="nav-text">
+                        Tipos de Ejercicios
+                    </span>
+                </a>
+
+            </li>
+            <li class="has-subnav">
+                <a asp-area="" asp-controller="EjercicioFisico" asp-action="Index">
+                    <i class="fa fa-smile-o fa-2x"></i>
+                    <span class="nav-text">
+                        Estados de Ejercicios
+                    </span>
+                </a>
+
+            </li >
+            <li class="has-subnav">
+                <a asp-area="" asp-controller="Home" asp-action="Privacy">
+                    <i class="fa fa-lock fa-2x"></i>
+                    <span class="nav-text">
+                        Privacidad
+                    </span>
+                </a>
+            </li>
+
+    </nav>
+
+        @* Nav Horizontal *@
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+}
+else
+{
+    @* Nav Horizontal *@
+    <header>
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+            <div class="container-fluid">
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target=".navbar-collapse"
+                    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
+                    <ul class="navbar-nav flex-grow-1">
+                    </ul>
+                    <partial name="_LoginPartial" />
+                </div>
+            </div>
+        </nav>
+    </header>
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+}
+
+@* Scripts Librerias *@
+
+<script src="~/lib/jquery/dist/jquery.min.js"></script>
+<script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="~/js/site.js" asp-append-version="true"></script>
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11.10.8/dist/sweetalert2.all.min.js"></script>
+@await RenderSectionAsync("Scripts", required: false)
+
+
+</html>

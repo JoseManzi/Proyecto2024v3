@@ -1,0 +1,99 @@
+@{
+  ViewData["Title"] = "Ejercicios Fisicos";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/ejerciciosfisicos.css" asp-append-version="true" />
+</head>
+  
+
+<div class="text-center">
+  <h1 class="display-4 contenidoIndex">Estado de Ejercicios Físicos</h1>
+</div>
+<!-- Button  modal -->
+<div class="mb-2">
+  <button type="button" onclick="ListadoEjerciciosFisicos(); RefrescarTabla()" class="btn btn-outline-dark contenidoIndex" >
+    <i class="fa fa-refresh fa-spin fa-3x fa-fw" aria-hidden="true"></i>
+  </button>
+  <button type="button" class="btn btn-info d-grid gap-2 col-3 mx-auto btnNuevo" onclick="NuevoRegistro()" data-bs-toggle="modal" data-bs-target="#ModalEjercicioFisico">
+  Nuevo Estado de Ejercicio
+  </button>
+</div>
+
+
+<!-- Modal -->
+<div class="modal fade" id="ModalEjercicioFisico" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true" data-bs-backdrop="static">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="ModalTitulo"></h5>
+      </div>
+      <div class="modal-body">
+        <form>
+          <div class="row">
+            <input type="hidden" id="EjercicioFisicoID" value="0" />
+            <div class="mb-3 col-12">
+              <label for="TipoEjercicioID" class="form-label">Seleccione el Tipo de Ejercicio</label>
+              @Html.DropDownList("TipoEjercicioID", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+
+            <div class="mb-3 col-6">
+              <label for="Inicio" class="form-label">Inicio del Ejercicio</label>
+              <input type="datetime-local" id="Inicio" class="form-control"
+                value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" />
+            </div>
+
+            <div class="mb-3 col-6">
+              <label for="EstadoEmocionalInicio" class="form-label">Estado Emocional al Iniciar</label>
+              @Html.DropDownList("EstadoEmocionalInicio", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+
+            <div class="mb-3 col-6">
+              <label for="Fin" class="form-label">Fin del Ejercicio</label>
+              <input type="datetime-local" id="Fin" class="form-control"
+                value="@DateTime.Now.ToString("yyyy-MM-dd HH:mm")" />
+            </div>
+
+            <div class="mb-3 col-6">
+              <label for="EstadoEmocionalFin" class="form-label">Estado Emocional al Finalizar</label>
+              @Html.DropDownList("EstadoEmocionalFin", null, htmlAttributes: new { @class = "form-control" })
+            </div>
+          <div class="mb-3">
+            <label for="observaciones" class="form-label">Observaciones</label>
+            <input type="text" class="form-control" id="Observaciones" placeholder="Ingrese una Observación">
+          </div>
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" onclick="GuardarRegistro()" class="btn btn-success" style="width: 140px;">Guardar</button>
+        <button type="button" onclick="LimpiarModal()" class="btn btn-danger" data-bs-dismiss="modal" style="width: 90px;">Cancelar</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+@* Tabla de Estados *@
+
+<table class=" contenidoIndex table table-light table-bordered table-striped table-condensed ">
+  <thead>
+    <tr>
+      <th style="background-color:grey; color:white; text-align: center">Ejercicios Fisicos</th>
+      <th style="background-color:rgb(156, 156, 156); color:white; text-align: center">Fecha de Inicio</th>
+      <th style="background-color:grey; color:white; text-align: center">Fecha de Fin</th>
+      <th style="background-color:rgb(156, 156, 156); color:white; text-align: center">Estado Emocional al Inicio</th>
+      <th style="background-color:grey; color:white; text-align: center">Estado Emocional al Final</th>
+      <th style="background-color:rgb(156, 156, 156); color:white; text-align: center">Observaciones</th>
+      <th style="width: 70px; background-color:rgba(8, 96, 96, 0);;"></th>
+      <th style="width: 70px; background-color:rgba(8, 96, 96, 0);;"></th>
+    </tr>
+  </thead>
+  <tbody id="tbody-ejerciciosfisicos">
+  </tbody>
+</table>
+
+
+@section Scripts {
+  <script src="~/js/ejerciciosfisicos-1.0.0.js"></script>
+}
+

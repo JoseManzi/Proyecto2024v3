@@ -1,0 +1,24 @@
+body{
+    background-image: url("../img/fondoHome.jpg");
+    background-size: cover;
+}
+
+.nav{
+    background-color: rgba(255, 255, 255, 0.568);
+    border-radius: 5px 5px;
+    box-shadow: 2px 2px 2px;
+}
+
+.form-control{
+    background-color: rgba(255, 255, 255, 0.568);
+}
+
+.btn{
+    background-color: rgb(148, 148, 148);
+    border-color: white;
+}
+
+.btn:hover{
+    background-color: rgb(170, 170, 170);
+    border-color: grey;
+}

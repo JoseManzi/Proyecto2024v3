@@ -1,0 +1,59 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Regístrate";
+}
+
+<head>
+    <link rel="stylesheet" href="~/css/register.css" asp-append-version="true" />
+</head>
+
+<body>
+
+
+    <h1>Cree una nueva cuenta</h1>
+
+    @* Se comentaron las validaciones *@
+
+    <div class="login">
+        <div class="form">
+            <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post">
+                @* <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div> *@
+                <div>
+                    <input asp-for="Input.Email" class="form-control" autocomplete="username" aria-required="true"
+                        placeholder="Correo Electrónico" />
+                    @* <label asp-for="Input.Email">Correo Electrónico</label>
+                    <span asp-validation-for="Input.Email" class="text-danger"></span> *@
+                </div>
+                <div>
+                    <input asp-for="Input.Password" class="form-control" autocomplete="new-password"
+                        aria-required="true" placeholder="Contraseña" />
+                    @* <label asp-for="Input.Password">Contraseña</label>
+                    <span asp-validation-for="Input.Password" class="text-danger"></span> *@
+                </div>
+                <div>
+                    <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password"
+                        aria-required="true" placeholder="Confirmar Contraseña" />
+                    @* <label asp-for="Input.ConfirmPassword">Confirmar Contraseña</label> *@
+                    @* <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span> *@
+                </div>
+                <div class="contenidobotonRegistrarse">
+                    <button id="registerSubmit" type="submit" class="botonRegistrarse">Registrarse</button>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    @* Contenido despues del form *@
+
+    <div class="d-flex align-items-center justify-content-center pb-4">
+        <p class="mb-0 me-2 textoIngresar">¿Tienes cuenta?</p>
+        <a asp-page="./Login" asp-route-returnUrl="@Model.ReturnUrl" class="botonIngresar textoIngresar">Ingresar</a>
+    </div>
+
+</body>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

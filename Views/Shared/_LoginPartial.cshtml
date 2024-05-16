@@ -1,0 +1,40 @@
+﻿@using Microsoft.AspNetCore.Identity
+@inject SignInManager<IdentityUser> SignInManager
+@inject UserManager<IdentityUser> UserManager
+
+<head>
+    <link rel="stylesheet" href="~/css/loginpartial.css" asp-append-version="true" />
+</head>
+
+
+<ul class="navbar-nav">
+@if (SignInManager.IsSignedIn(User))
+{
+    <li class="nav-item">
+        <div class="icon-container">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Manage/Index"><i class="iconNavH fa fa-user fa-2x"></i><span class="icon-text">@User.Identity?.Name</span></a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <div class="icon-container">
+        <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Action("Index", "Home", new { area = "" })">
+            <button  type="submit" class="nav-link btn btn-link text-dark"><i class="iconNavH fa fa-sign-out fa-2x"></i><span class="icon-text">Cerrar Sesión</span></button>
+        </form>
+        </div>
+    </li>
+}
+else
+{
+    <li class="nav-item">
+        <div class="icon-container">
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Register"><i class="iconNavH fa fa-user fa-2x"></i><span class="icon-text">Registrarse</span></a>
+        </div>
+    </li>
+    <li class="nav-item">
+        <div class="icon-container">    
+        <a class="nav-link text-dark" asp-area="Identity" asp-page="/Account/Login"><i class="iconNavH fa fa-sign-in fa-2x"></i><span class="icon-text">Iniciar Sesión</span></a>
+        </div>
+    </li>
+}
+</ul>
+
